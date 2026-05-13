@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ERD Makanan Bergizi</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #ffffff; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+    .mermaid { background: #ffffff; }
+    .mermaid svg { max-width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="mermaid">
+erDiagram
+    ADMINS {
+        int id PK
+        varchar username UK
+        varchar password
+        varchar nama
+        varchar foto
+        datetime createdAt
+    }
+
+    USERS {
+        int id PK
+        varchar nama
+        varchar email UK
+        varchar phone
+        varchar password
+        varchar foto
+        datetime createdAt
+    }
+
+    MENUS {
+        int id PK
+        varchar name
+        varchar day
+        date date
+        text description
+        int energy
+        int protein
+        int karbo
+        int lemak
+        varchar category
+        varchar status
+        varchar img
+        datetime createdAt
+        datetime updatedAt
+    }
+
+    STATISTIK_WILAYAH {
+        int id PK
+        varchar wilayah UK
+        int total_porsi
+        int jangkauan_sekolah
+        int target_penerima
+        int realisasi_porsi
+        varchar pertumbuhan
+        varchar status
+        datetime updatedAt
+    }
+
+    BERITA {
+        int id PK
+        varchar judul
+        varchar slug UK
+        text ringkasan
+        longtext konten
+        varchar gambar
+        varchar kategori
+        varchar status
+        datetime publishedAt
+        datetime createdAt
+        datetime updatedAt
+        int authorId FK
+    }
+
+    GALERI_DOKUMENTASI {
+        int id PK
+        varchar judul
+        text deskripsi
+        varchar gambar
+        varchar lokasi
+        int tahun
+        datetime createdAt
+    }
+
+    ASPIRASI {
+        int id PK
+        varchar nama
+        varchar email
+        varchar kategori
+        text pesan
+        varchar status
+        datetime createdAt
+    }
+
+    NEWSLETTER_SUBSCRIBERS {
+        int id PK
+        varchar email UK
+        boolean isActive
+        datetime createdAt
+    }
+
+    ACTIVITY_LOG {
+        int id PK
+        varchar entity
+        varchar action
+        text detail
+        varchar icon
+        datetime createdAt
+    }
+
+    ADMINS ||--o{ BERITA : "menulis artikel"
+    ADMINS ||--o{ MENUS : "mengelola menu"
+    ADMINS ||--o{ STATISTIK_WILAYAH : "mengelola data"
+    ADMINS ||--o{ GALERI_DOKUMENTASI : "mengelola foto"
+    ADMINS ||--o{ ASPIRASI : "membaca pesan"
+    ADMINS ||--o{ ACTIVITY_LOG : "mencatat aksi"
+    USERS ||--o{ ASPIRASI : "mengirim pesan"
+    USERS ||--o{ NEWSLETTER_SUBSCRIBERS : "berlangganan"
+    STATISTIK_WILAYAH ||--o{ MENUS : "distribusi ke"
+  </div>
+  <script>
+    mermaid.initialize({ 
+      startOnLoad: true, 
+      theme: 'default',
+      er: { fontSize: 14, useMaxWidth: false }
+    });
+  </script>
+</body>
+</html>

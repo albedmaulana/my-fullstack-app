@@ -1,0 +1,25 @@
+{
+  "name": "nutrition-portal-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm --workspace=apps/web run dev",
+    "dev:web": "npm --workspace=apps/web run dev",
+    "dev:api": "npm --workspace=apps/api run dev",
+    "build": "npm --workspace=apps/web run build",
+    "prisma:generate": "npm --workspace=apps/api run prisma:generate",
+    "prisma:migrate": "npm --workspace=apps/api run prisma:migrate",
+    "seed": "npm --workspace=apps/api run seed"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.12",
+    "tailwindcss": "^4.2.4"
+  }
+}
