@@ -8,7 +8,7 @@ const InboxView = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/aspirasi', {
+      const res = await fetch('https://my-fullstack-app-api.vercel.app/api/aspirasi', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const result = await res.json();
@@ -24,7 +24,7 @@ const InboxView = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Hapus pesan ini?')) return;
     try {
-      await fetch(`http://localhost:5000/api/aspirasi/${id}`, {
+      await fetch(`https://my-fullstack-app-api.vercel.app/api/aspirasi/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -35,7 +35,7 @@ const InboxView = () => {
 
   const handleStatusUpdate = async (id, status) => {
     try {
-      await fetch(`http://localhost:5000/api/aspirasi/${id}`, {
+      await fetch(`https://my-fullstack-app-api.vercel.app/api/aspirasi/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ status })

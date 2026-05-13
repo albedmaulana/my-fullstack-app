@@ -6,7 +6,7 @@ export default function StatisticalHighlight() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/statistik');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/statistik');
         const result = await res.json();
         const data = Array.isArray(result) ? result : (result.data || []);
 

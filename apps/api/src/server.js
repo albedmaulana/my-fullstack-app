@@ -91,7 +91,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log('╔═══════════════════════════════════════════════╗');
   console.log('║  🚀 Server Backend Makanan Bergizi            ║');
   console.log(`║  📡 Berjalan di http://localhost:${PORT}          ║`);
-  console.log('║  📋 Health: http://localhost:5000/api/health   ║');
+  console.log('║  📋 Health: https://my-fullstack-app-api.vercel.app/api/health   ║');
   console.log('╚═══════════════════════════════════════════════╝');
   console.log('');
   console.log('Routes terdaftar:');

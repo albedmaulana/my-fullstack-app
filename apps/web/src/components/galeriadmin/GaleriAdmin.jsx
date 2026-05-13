@@ -11,7 +11,7 @@ const GaleriAdmin = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/galeri');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/galeri');
         const result = await res.json();
         setGaleri(result.data || []);
       } catch (e) { console.error(e); }
@@ -22,14 +22,14 @@ const GaleriAdmin = () => {
   const handleDelete = async (id, judul) => {
     if (!window.confirm(`Hapus foto "${judul}"?`)) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/galeri/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`https://my-fullstack-app-api.vercel.app/api/galeri/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) { setGaleri(p => p.filter(g => g.id !== id)); }
     } catch { alert('Gagal menghapus.'); }
   };
 
   const handleSave = async (form) => {
     try {
-      const res = await fetch('http://localhost:5000/api/galeri', {
+      const res = await fetch('https://my-fullstack-app-api.vercel.app/api/galeri', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(form)

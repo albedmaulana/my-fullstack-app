@@ -15,7 +15,7 @@ export default function AspirasiForm() {
     if (!form.nama || !form.pesan) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/aspirasi', {
+      const res = await fetch('https://my-fullstack-app-api.vercel.app/api/aspirasi', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

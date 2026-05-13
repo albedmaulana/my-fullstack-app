@@ -23,7 +23,7 @@ const Sidebar = () => {
       try {
         const adminId = localStorage.getItem('adminId') || 1;
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/admins/${adminId}`, {
+        const response = await fetch(`https://my-fullstack-app-api.vercel.app/api/admins/${adminId}`, {
           headers: token ? { Authorization: `Bearer ${token}` } : {}
         });
 

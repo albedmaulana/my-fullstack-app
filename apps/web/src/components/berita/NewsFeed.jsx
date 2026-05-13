@@ -8,7 +8,7 @@ export default function NewsFeed() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/berita?status=Published');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/berita?status=Published');
         const result = await res.json();
         setArticles(result.data || []);
       } catch (e) { console.error(e); }

@@ -62,7 +62,7 @@ const MenuEditAdmin = ({ menuData, onSaveSuccess, onClose }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/menus/${formData.id}`, {
+      const response = await fetch(`https://my-fullstack-app-api.vercel.app/api/menus/${formData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(formData), 

@@ -7,7 +7,7 @@ const MenuGridAdmin = ({ onEditClick }) => {
 
   const fetchMenus = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/menus');
+      const response = await fetch('https://my-fullstack-app-api.vercel.app/api/menus');
       const data = await response.json();
       setMenus(data);
       setLoading(false);
@@ -32,7 +32,7 @@ const MenuGridAdmin = ({ onEditClick }) => {
 
     if (window.confirm(`Apakah Anda yakin ingin menghapus menu "${name}"?`)) {
       try {
-        const response = await fetch(`http://localhost:5000/api/menus/${id}`, {
+        const response = await fetch(`https://my-fullstack-app-api.vercel.app/api/menus/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

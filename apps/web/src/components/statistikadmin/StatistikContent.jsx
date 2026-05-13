@@ -58,7 +58,7 @@ const StatistikContent = () => {
 
   const fetchStatistik = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/statistik');
+      const response = await fetch('https://my-fullstack-app-api.vercel.app/api/statistik');
       const data = await response.json();
       const sortedData = [...data].reverse();
       setDataStatistik(sortedData);
@@ -125,8 +125,8 @@ const StatistikContent = () => {
       }
 
       const url = isUpdate 
-        ? `http://localhost:5000/api/statistik/${formData.id}` 
-        : 'http://localhost:5000/api/statistik';
+        ? `https://my-fullstack-app-api.vercel.app/api/statistik/${formData.id}` 
+        : 'https://my-fullstack-app-api.vercel.app/api/statistik';
       const method = isUpdate ? 'PUT' : 'POST';
       const jenisAksi = isUpdate ? "berhasil diperbarui" : "berhasil ditambahkan";
 
@@ -168,7 +168,7 @@ const StatistikContent = () => {
     if (window.confirm(`Apakah Anda yakin ingin menghapus data wilayah ${wilayah}?`)) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/statistik/${id}`, {
+        const response = await fetch(`https://my-fullstack-app-api.vercel.app/api/statistik/${id}`, {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
         });

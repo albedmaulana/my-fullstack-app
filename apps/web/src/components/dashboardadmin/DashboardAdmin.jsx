@@ -30,9 +30,9 @@ const DashboardAdmin = () => {
       const token = localStorage.getItem('token');
       const authHeaders = { headers: { Authorization: `Bearer ${token}` } };
       const [resDash, resStat, resMenu] = await Promise.all([
-        fetch('http://localhost:5000/api/stats-dashboard', authHeaders),
-        fetch('http://localhost:5000/api/statistik'),
-        fetch('http://localhost:5000/api/menus')
+        fetch('https://my-fullstack-app-api.vercel.app/api/stats-dashboard', authHeaders),
+        fetch('https://my-fullstack-app-api.vercel.app/api/statistik'),
+        fetch('https://my-fullstack-app-api.vercel.app/api/menus')
       ]);
 
       const dataDashboard = await resDash.json();
@@ -77,7 +77,7 @@ const DashboardAdmin = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/statistik/${wilayahTerpilih.id}`, {
+      const response = await fetch(`https://my-fullstack-app-api.vercel.app/api/statistik/${wilayahTerpilih.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({

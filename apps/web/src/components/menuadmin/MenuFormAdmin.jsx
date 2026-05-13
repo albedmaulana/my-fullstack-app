@@ -39,7 +39,7 @@ const MenuFormAdmin = ({ onSaveSuccess, isModal, onClose }) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/menus', {
+      const response = await fetch('https://my-fullstack-app-api.vercel.app/api/menus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(formData),

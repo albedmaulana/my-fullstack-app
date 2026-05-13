@@ -6,7 +6,7 @@ export default function MenuTodayPreview() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/menus');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/menus');
         const result = await res.json();
         const data = Array.isArray(result) ? result : (result.data || []);
 

@@ -7,7 +7,7 @@ export default function GallerySection() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/galeri');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/galeri');
         const result = await res.json();
         setGaleri(result.data || []);
       } catch (e) { console.error(e); }

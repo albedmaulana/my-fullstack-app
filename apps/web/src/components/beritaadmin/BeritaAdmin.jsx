@@ -12,7 +12,7 @@ const BeritaAdmin = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/berita-admin', {
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/berita-admin', {
           headers: token ? { Authorization: `Bearer ${token}` } : {}
         });
         const result = await res.json();
@@ -25,14 +25,14 @@ const BeritaAdmin = () => {
   const handleDelete = async (id, judul) => {
     if (!window.confirm(`Hapus berita "${judul}"?`)) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/berita/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`https://my-fullstack-app-api.vercel.app/api/berita/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) { setBerita(p => p.filter(b => b.id !== id)); }
     } catch { alert('Gagal menghapus.'); }
   };
 
   const handleSave = async (form) => {
     const isEdit = !!form.id;
-    const url = isEdit ? `http://localhost:5000/api/berita/${form.id}` : 'http://localhost:5000/api/berita';
+    const url = isEdit ? `https://my-fullstack-app-api.vercel.app/api/berita/${form.id}` : 'https://my-fullstack-app-api.vercel.app/api/berita';
     try {
       const res = await fetch(url, { method: isEdit ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify(form) });
       const result = await res.json();

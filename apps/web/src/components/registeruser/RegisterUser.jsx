@@ -21,7 +21,7 @@ const RegisterUser = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/register-user', {
+      const res = await fetch('https://my-fullstack-app-api.vercel.app/api/register-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nama: form.nama, email: form.email, phone: form.phone || null, password: form.password })

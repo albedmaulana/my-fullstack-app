@@ -7,7 +7,7 @@ export default function NewsPreview() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/berita?limit=2');
+        const res = await fetch('https://my-fullstack-app-api.vercel.app/api/berita?limit=2');
         const result = await res.json();
         setArticles(result.data || []);
       } catch (e) { console.error(e); }

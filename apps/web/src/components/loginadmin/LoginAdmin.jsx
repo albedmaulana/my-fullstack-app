@@ -17,7 +17,7 @@ const LoginAdmin = () => {
     
     try {
       // 3. Logika pemanggilan API ke Backend (Prisma)
-      const response = await fetch('http://localhost:5000/api/login-admin', {
+      const response = await fetch('https://my-fullstack-app-api.vercel.app/api/login-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
